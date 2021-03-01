@@ -32,12 +32,14 @@
         "memory",
         "cpu",
         "temperature",
-        "battery",
 	    "backlight",
 	    "pulseaudio",
+        "battery",
         "tray",
+        "bluetooth",        
 	    "clock#time",
-        "clock#date"        
+        "clock#date",
+        "idle_inhibitor"
     ],
 
 
@@ -119,8 +121,8 @@
         "format": "{icon} {name}",
         "format-icons": {
             "1:WWW": "", // Icon: firefox-browser
-	        "2:Terminals": "", // Icon: terminal
-	        "3:IDE": "", // Icon: code
+            "2:Terminals": "", // Icon: terminal
+            "3:IDE": " ", // Icon: code
             "4:Communications": "", // Icon: mail
             "5:VMs": "", // Icon: terminal
             "6:Media": "🎜",
@@ -129,23 +131,6 @@
             "default": ""
         }
     },
-
-//   "pulseaudio": {
-//        "scroll-step": 1,
-//        "format": "{icon}  {volume}%",
-//        "format-bluetooth": "{icon}  {volume}%",
-//        "format-muted": "",
-//        "format-icons": {
-//            "headphones": "",
-//            "handsfree": "",
-//            "headset": "",
-//            "phone": "",
-//            "portable": "",
-//            "car": "",
-//            "default": ["", ""]
-//        },
-//        "on-click": "pavucontrol"
-//    },
 
     "temperature": {
       "critical-threshold": 80,
@@ -167,7 +152,7 @@
         "on-scroll-down": "brightlight -pd 1",
         "on-scroll-up": "brightlight -pi 1",
         "format": "{icon} {percent}%",
-        "format-icons": ["", "", ""],
+        "format-icons": ["", ""],
         "on-click": "wdisplays"
     },
 
@@ -187,9 +172,28 @@
         "on-click": "pavucontrol"
     },
 
-    "tray": {
-        "icon-size": 21,
-        "spacing": 10
-    }
+  "bluetooth": {
+  	"format": "{icon}",
+  	"format-alt": "bluetooth: {status}",
+  	"interval": 30,
+  	"format-icons": {
+  		"enabled": "",
+  		"disabled": ""
+  	},
+  	"tooltip-format": "{status}"
+  },
+
+  "idle_inhibitor": {
+  	"format": "{icon}",
+  	"format-icons": {
+  	    "activated": "",
+  	    "deactivated": ""
+  	}
+  },
+
+  "tray": {
+    "icon-size": 21,
+    "spacing": 10
+  }
 
 }
