@@ -28,15 +28,13 @@
     //],
     
     "modules-right": [
+        "custom/crypto",
         "network",
         "memory",
         "cpu",
-        "temperature",
-	    "backlight",
 	    "pulseaudio",
         "battery",
         "tray",
-        "bluetooth",        
 	    "clock#time",
         "clock#date",
         "idle_inhibitor"
@@ -46,6 +44,14 @@
     // -------------------------------------------------------------------------
     // Modules
     // -------------------------------------------------------------------------
+
+    "custom/crypto": {
+        "format": "{}",
+        "interval": 600,
+        "return-type": "json",
+        "exec": "~/.config/waybar/modules/crypto/crypto.py",
+        "exec-if": "ping pro-api.coinmarketcap.com -c1"
+    },
 
     "battery": {
         "interval": 10,
